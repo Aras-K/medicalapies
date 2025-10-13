@@ -49,9 +49,9 @@ security = HTTPBasic()
 # ========================================
 
 USERS = {
-    "client_test": hashlib.sha256("TestPass2024!".encode()).hexdigest(),
+    "client_test": hashlib.sha256("TestPass2025!".encode()).hexdigest(),
     "demo_doctor": hashlib.sha256("DemoPass123!".encode()).hexdigest(),
-    "medical_api": hashlib.sha256("MedicalAPI2024!".encode()).hexdigest(),
+    "medical_api": hashlib.sha256("MedicalAPI2025!".encode()).hexdigest(),
 }
 
 def verify_credentials(credentials: HTTPBasicCredentials = Depends(security)) -> str:
