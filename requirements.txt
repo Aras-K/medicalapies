@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pydicom
+numpy
+opencv-python-headless
+Pillow
+torch
+torchvision
+torchxrayvision
+pylibjpeg
+pylibjpeg-libjpeg
