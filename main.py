@@ -167,35 +167,6 @@ async def root():
                 <strong>GET /docs</strong>
                 <p>Interactive API documentation (Swagger UI)</p>
             </div>
-            
-            <div class="test-accounts">
-                <h3>Test Accounts</h3>
-                <table>
-                    <tr>
-                        <th>Username</th>
-                        <th>Password</th>
-                    </tr>
-                    <tr>
-                        <td>client_test</td>
-                        <td>TestPass2024!</td>
-                    </tr>
-                    <tr>
-                        <td>demo_doctor</td>
-                        <td>DemoPass123!</td>
-                    </tr>
-                    <tr>
-                        <td>medical_api</td>
-                        <td>MedicalAPI2024!</td>
-                    </tr>
-                </table>
-            </div>
-            
-            <h2>Quick Test</h2>
-            <code>
-                curl -X POST http://localhost:8000/api/analyze-xray \
-                  -H "Authorization: Basic $(echo -n client_test:TestPass2024! | base64)" \
-                  -F "file=@xray.dcm"
-            </code>
         </div>
     </body>
     </html>
