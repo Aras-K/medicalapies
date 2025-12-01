@@ -18,6 +18,7 @@ import base64
 
 # Import your analyzer
 from torchxrayvision_analyzer import analyze_with_ai
+from llm_service import generate_medical_report
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -244,6 +245,10 @@ async def analyze_xray(
         logger.info("Running AI analysis...")
         ai_results = analyze_with_ai(pixel_array, metadata)
         
+        # Generate LLM Report
+        logger.info("Generating LLM report...")
+        llm_report = generate_medical_report(ai_results, metadata)
+        
         # Build response
         response = {
             "success": True,
@@ -255,7 +260,8 @@ async def analyze_xray(
                 "content_type": file.content_type
             },
             "metadata": metadata,
-            "analysis": ai_results
+            "analysis": ai_results,
+            "llm_report": llm_report
         }
         
         logger.info(f"Analysis complete for {username}")
@@ -313,12 +319,16 @@ async def analyze_base64(
         pixel_array = dicom.pixel_array
         ai_results = analyze_with_ai(pixel_array, metadata)
         
+        # Generate LLM Report
+        llm_report = generate_medical_report(ai_results, metadata)
+        
         return {
             "success": True,
             "timestamp": datetime.utcnow().isoformat(),
             "username": username,
             "metadata": metadata,
-            "analysis": ai_results
+            "analysis": ai_results,
+            "llm_report": llm_report
         }
         
     except HTTPException:

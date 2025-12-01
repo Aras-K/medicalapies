@@ -10,3 +10,4 @@ torchvision
 torchxrayvision
 pylibjpeg
 pylibjpeg-libjpeg
+openai
